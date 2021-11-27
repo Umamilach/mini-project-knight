@@ -32,12 +32,9 @@ public class PlayerAttack : MonoBehaviour
             attack.PlaySound("attack");
 
             // memberikan damage kepada musuh
-            int i = 0;
             foreach (Collider2D enemy in hitEnemies)
             {
-                print("hi " + i);
                 enemy.GetComponent<EnemyHealth>().TakeDamage(1);
-                i++;
             }
         }
 
