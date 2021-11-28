@@ -5,7 +5,14 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 1;
+    private Animator anim;
     private int currentHealth;
+    public bool isDead = false;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Start()
     {
         currentHealth = maxHealth;
@@ -13,12 +20,17 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        print("Enemy take damage");
+        anim.SetTrigger("attacked");
         currentHealth -= damage;
+
 
         if (currentHealth <= 0)
         {
             EnemyDied();
+            if (gameObject.name == "Boss")
+            {
+                GameObject.Find("Cage").SetActive(false);
+            }
         }
     }
 

@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         walkSound = Resources.Load<AudioClip>("walk");
-        
+
         enemyDeathSound = Resources.Load<AudioClip>("enemyDeath");
         jumpSound = Resources.Load<AudioClip>("jump");
         playerDeathSound = Resources.Load<AudioClip>("playerDeath");
@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
         completeSound = Resources.Load<AudioClip>("complete");
 
         audioSrc = GetComponent<AudioSource>();
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public static void PlaySound(string clip)
